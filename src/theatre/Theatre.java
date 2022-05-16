@@ -48,4 +48,16 @@ public class Theatre {
         }
         return count;
     }
+
+    public int getRowL() {
+        return row;
+    }
+
+    public int getColL() {
+        return col;
+    }
+
+    public boolean getState(int r, int c){
+        return seats[r][c];
+    }
 }
