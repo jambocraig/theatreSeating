@@ -12,6 +12,7 @@ public class Theatre {
     }
 
     public void populate(int load){
+        clearSeats();
         int count = 0;
         int target = (int)(row * col * load)/100;
         while(count < target){
@@ -20,6 +21,14 @@ public class Theatre {
             if (!seats[r][c]){
                 seats[r][c] = true;
                 count++;
+            }
+        }
+    }
+
+    private void clearSeats() {
+        for(int r = 0; r < row; r++){
+            for(int c = 0; c < col; c++){
+                seats[r][c] = false;
             }
         }
     }
