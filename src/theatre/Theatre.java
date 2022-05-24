@@ -34,8 +34,9 @@ public class Theatre {
     }
 
     public void print(){
+        // print the rear rows at the top
         System.out.println("\nSeat State");
-        for (int row = 0; row < seats.length; row++) {
+        for (int row = seats.length - 1; row >= 0;row--) {
             for (int col = 0; col < seats[row].length; col++) {
                 if(seats[row][col]){
                     System.out.print("x ");
@@ -68,5 +69,23 @@ public class Theatre {
 
     public boolean getState(int r, int c){
         return seats[r][c];
+    }
+
+    public int[] checkBooking(int booking) {
+        int count;
+        for (int i = 0; i < this.row; i++) {
+            count = 0;
+            for (int j = 0; j < this.col; j++) {
+                if (seats[i][j]){
+                    count++;
+                } else {
+                    count = 0;
+                }
+                if(count == booking){
+                    return new int[]{i,j - booking  +1};
+                }
+            }
+        }
+        return new int[0];
     }
 }
